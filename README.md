@@ -203,13 +203,9 @@ The current plots are inherited artifacts and are not independently verified.
 ### UTA-RLDD Cross-Domain Evaluation Note
 UTA-RLDD's active/fatigue face-frame labels describe a different task from the MRL eye-open/eye-closed labels. The MRL eye classifier is not a UTA-RLDD fatigue classifier. Prior cross-dataset figures in inherited reports are also unverified.
 
-## 9. Continuation Audit
-
-See [`outputs/codex_continuation_audit.md`](outputs/codex_continuation_audit.md) for the verified local file counts, current feature status, subject overlap, environment limitation, and fixes made during continuation.
-
 ---
 
-## 10. College Project Viva & Interview Questions
+## 9. College Project Viva & Interview Questions
 
 1. **Q: Why not use simple Eye Aspect Ratio (EAR) using landmarks instead of a CNN?**
    *A:* EAR relies on hand-crafted heuristic formulas that break down under bad lighting, low resolution, motion blur, and reflections on spectacles. A trained CNN directly learns pixel-level infrared features robust to occlusions and illumination shifts.
