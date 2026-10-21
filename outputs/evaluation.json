@@ -1,0 +1,62 @@
+{
+    "model_architecture": "MobileNetV3Small (ImageNet pretrained)",
+    "input_shape": [
+        128,
+        128,
+        3
+    ],
+    "eye_state_classification": {
+        "dataset": "MRL Eye Dataset (Forked)",
+        "test_samples": 13858,
+        "accuracy": 0.9785,
+        "precision": 0.9764,
+        "recall": 0.9801,
+        "f1_score": 0.9782,
+        "cpu_latency_ms": 3.68,
+        "cpu_fps": 272.07,
+        "per_class": {
+            "awake": {
+                "precision": 0.9806,
+                "recall": 0.9769,
+                "f1": 0.9788,
+                "support": 7027
+            },
+            "sleepy": {
+                "precision": 0.9764,
+                "recall": 0.9801,
+                "f1": 0.9782,
+                "support": 6831
+            }
+        },
+        "confusion_matrix": [
+            [
+                6865,
+                162
+            ],
+            [
+                136,
+                6695
+            ]
+        ]
+    },
+    "video_face_drowsiness_analysis": {
+        "dataset": "UTA-RLDD (Fatigue vs Active)",
+        "evaluated_samples": 909,
+        "accuracy": 0.4829,
+        "precision": 0.4848,
+        "recall": 0.5982,
+        "f1_score": 0.5356,
+        "confusion_matrix": [
+            [
+                168,
+                288
+            ],
+            [
+                182,
+                271
+            ]
+        ],
+        "task_distinction_note": "Model A classifies eye closure. UTA-RLDD tests whole-face drowsiness transferability."
+    },
+    "timestamp": "2026-10-21 21:42:27"
+}
