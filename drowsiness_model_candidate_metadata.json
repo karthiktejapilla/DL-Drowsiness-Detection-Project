@@ -1,0 +1,63 @@
+{
+  "model_name": "MobileNetV3Small Drowsiness Classifier",
+  "model_architecture": "MobileNetV3Small backbone + GAP + Dense(64, ReLU) + sigmoid binary head",
+  "dataset": "DPD (Drowsiness Prediction Dataset)",
+  "dataset_path": "DPD 9000 image dataset\\0 FaceImages",
+  "task": "Binary Face-Level Fatigue Classification",
+  "class_names": [
+    "Active",
+    "Fatigue"
+  ],
+  "class_mapping": {
+    "Active": 0,
+    "Fatigue": 1
+  },
+  "input_shape": [
+    128,
+    128,
+    3
+  ],
+  "preprocessing": "OpenCV Haar face localization with 15% padding (same detector as inference); crop to RGB; resize to 128x128; scale to [-1, 1]",
+  "face_crop_cache_version": "haar-640px-pad15-v2-loose",
+  "face_crop_excluded_images": 63,
+  "split_manifest": "outputs/split_manifest.csv",
+  "split_strategy": "Deterministic stratified image-level 70/15/15 split (seeded); no subject IDs available",
+  "random_seed": 123,
+  "checkpoint_version": "2026-10-23-dpd-mobilenetv3small-facecrop-v2",
+  "split_class_distribution": {
+    "train": {
+      "Active": 3188,
+      "Fatigue": 3149
+    },
+    "val": {
+      "Active": 682,
+      "Fatigue": 678
+    },
+    "test": {
+      "Active": 684,
+      "Fatigue": 676
+    }
+  },
+  "training_config": {
+    "head_epochs_requested": 12,
+    "fine_tune_epochs_requested": 0,
+    "batch_size": 32,
+    "head_learning_rate": 0.0003,
+    "fine_tune_learning_rate": 1e-05,
+    "augmentation_on_training_only": true,
+    "class_weights": {
+      "Fatigue": 1.0061924420450936,
+      "Active": 0.9938833124215809
+    }
+  },
+  "total_train_samples": 6337,
+  "total_val_samples": 1360,
+  "total_test_samples": 1360,
+  "batch_size": 32,
+  "epochs_trained": 12,
+  "best_val_accuracy": 0.9022,
+  "best_val_loss": 0.2736,
+  "training_duration_seconds": 176.47,
+  "timestamp": "2026-10-23T02:33:19.832028",
+  "model_path": "models\\drowsiness_model_candidate.keras"
+}
